@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { RegistroComponent } from './registro/registro'; // Importa el componente
+import { RegistroReactivoComponent } from './registro-reactivo/registro-reactivo'; // Importa el componente reactivo
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RegistroComponent], // Reemplaza RouterOutlet por RegistroComponent
+  imports: [RegistroReactivoComponent], // Reemplaza RegistroComponent por RegistroReactivoComponent
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

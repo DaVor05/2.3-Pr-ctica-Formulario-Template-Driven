@@ -1,0 +1,75 @@
+<div class="container">
+  <h2>Formulario Reactivo (Model Driven)</h2>
+
+  <form [formGroup]="formRegistro" (ngSubmit)="onSubmit()">
+    
+    <!-- Nombre -->
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" formControlName="nombre" 
+        [ngClass]="{'is-invalid': f['nombre'].invalid && (f['nombre'].dirty || f['nombre'].touched), 'is-valid': f['nombre'].valid && (f['nombre'].dirty || f['nombre'].touched)}">
+      
+      <div *ngIf="f['nombre'].invalid && (f['nombre'].dirty || f['nombre'].touched)" class="error-message">
+        <small *ngIf="f['nombre'].errors?.['required']">El nombre es obligatorio.</small>
+        <small *ngIf="f['nombre'].errors?.['minlength']">El nombre debe tener al menos 3 caracteres.</small>
+      </div>
+    </div>
+
+    <!-- Apellidos -->
+    <div class="form-group">
+      <label for="apellidos">Apellidos:</label>
+      <input type="text" id="apellidos" formControlName="apellidos"
+        [ngClass]="{'is-invalid': f['apellidos'].invalid && (f['apellidos'].dirty || f['apellidos'].touched), 'is-valid': f['apellidos'].valid && (f['apellidos'].dirty || f['apellidos'].touched)}">
+      
+      <div *ngIf="f['apellidos'].invalid && (f['apellidos'].dirty || f['apellidos'].touched)" class="error-message">
+        <small *ngIf="f['apellidos'].errors?.['required']">Los apellidos son obligatorios.</small>
+      </div>
+    </div>
+
+    <!-- Correo -->
+    <div class="form-group">
+      <label for="correo">Correo electrónico:</label>
+      <input type="email" id="correo" formControlName="correo"
+        [ngClass]="{'is-invalid': f['correo'].invalid && (f['correo'].dirty || f['correo'].touched), 'is-valid': f['correo'].valid && (f['correo'].dirty || f['correo'].touched)}">
+      
+      <div *ngIf="f['correo'].invalid && (f['correo'].dirty || f['correo'].touched)" class="error-message">
+        <small *ngIf="f['correo'].errors?.['required']">El correo electrónico es obligatorio.</small>
+        <small *ngIf="f['correo'].errors?.['email']">Ingresa un correo electrónico válido.</small>
+      </div>
+    </div>
+
+    <!-- Teléfono -->
+    <div class="form-group">
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" formControlName="telefono"
+        [ngClass]="{'is-invalid': f['telefono'].invalid && (f['telefono'].dirty || f['telefono'].touched), 'is-valid': f['telefono'].valid && (f['telefono'].dirty || f['telefono'].touched)}">
+      
+      <div *ngIf="f['telefono'].invalid && (f['telefono'].dirty || f['telefono'].touched)" class="error-message">
+        <small *ngIf="f['telefono'].errors?.['required']">El teléfono es obligatorio.</small>
+      </div>
+    </div>
+
+    <!-- Contraseña -->
+    <div class="form-group">
+      <label for="password">Contraseña:</label>
+      <input type="password" id="password" formControlName="password"
+        [ngClass]="{'is-invalid': f['password'].invalid && (f['password'].dirty || f['password'].touched), 'is-valid': f['password'].valid && (f['password'].dirty || f['password'].touched)}">
+      
+      <div *ngIf="f['password'].invalid && (f['password'].dirty || f['password'].touched)" class="error-message">
+        <small *ngIf="f['password'].errors?.['required']">La contraseña es obligatoria.</small>
+        <small *ngIf="f['password'].errors?.['minlength']">La contraseña debe tener al menos 6 caracteres.</small>
+      </div>
+    </div>
+
+    <!-- Botón de envío deshabilitado si el formulario es inválido -->
+    <button type="submit" [disabled]="formRegistro.invalid">Registrar</button>
+  </form>
+
+  <!-- Visualización de datos capturados -->
+  <div *ngIf="datosRegistrados" class="resultado">
+    <h3>Información Capturada (Reactive Form):</h3>
+    <p><strong>Nombre:</strong> {{ datosRegistrados.nombre }} {{ datosRegistrados.apellidos }}</p>
+    <p><strong>Correo:</strong> {{ datosRegistrados.correo }}</p>
+    <p><strong>Teléfono:</strong> {{ datosRegistrados.telefono }}</p>
+  </div>
+</div>
