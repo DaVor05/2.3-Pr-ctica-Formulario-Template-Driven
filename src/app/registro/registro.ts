@@ -6,8 +6,8 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-registro',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './registro.html',  // Cambiado de ./registro.component.html a ./registro.html
-  styleUrl: './registro.css'       // Cambiado de ./registro.component.css a ./registro.css
+  templateUrl: './registro.html',
+  styleUrl: './registro.css' // <-- Asegúrate de que apunte exactamente a './registro.css'
 })
 export class RegistroComponent {
   usuario = {

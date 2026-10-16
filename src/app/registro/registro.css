@@ -31,6 +31,23 @@ input {
   border-radius: 4px;
 }
 
+/* Clases para la validación visual */
+input.is-invalid {
+  border-color: #dc3545 !important;
+  background-color: #fff8f8;
+}
+
+input.is-valid {
+  border-color: #28a745 !important;
+  background-color: #f8fff9;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
 button {
   width: 100%;
   padding: 10px;
@@ -44,6 +61,11 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #cccccc !important;
+  cursor: not-allowed;
 }
 
 .resultado {
